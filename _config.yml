@@ -190,6 +190,13 @@ exclude:
   - node_modules
   - package*.json
 
+include:
+  - _data
+  - _plugins
+  - _posts
+  - _site
+  - _tabs
+
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
