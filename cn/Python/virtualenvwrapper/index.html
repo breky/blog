@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Virtualenvwrapper 安装与使用 | Breky</title>
+  
+    <link rel="icon" href="/assets/favicon.ico">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/breky.png)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Breky</div>
+        
+            <div>人心唯危，道心唯惟</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/tags/" class="Btn">
+              <li>标签</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  
+  <span style="display:block; width:auto; text-align:center; color: red;">
+  文章中涉及的命令，请在阅读完文章后酌情执行！
+</span>
+
+
+
+<article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>Virtualenvwrapper 安装与使用</h1>
+            
+                <div class='ListMeta'>
+  <span>作者 <a href="https://blog.breky.win">Breky</a></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>发布于 <time datetime="2023-03-11T03:38:00.000Z" itemprop="datePublished">2023-03-11</time></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>分类
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/categories/Python/">Python</a> 
+  </li>
+
+
+  </ul>
+  
+
+  <span>&nbsp;&nbsp<span>
+
+  </span>标签
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/tags/python/">python</a> 
+  </li>
+
+
+  </ul>
+  
+
+
+</div>
+
+            
+
+       
+    </header>
+
+    <section>
+    
+
+      <p>Virtualenvwrapper是用来管理virtualenv的扩展包，方便env虚拟环境管理</p>
+<span id="more"></span>
+<h2 id="安装">安装</h2>
+<h3 id="linux">Linux</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install virtualenvwrapper</span><br></pre></td></tr></table></figure>
+<p>virtualenvwrapper默认将所有的虚拟环境放在～/.virtualenvs目录下管理，可以修改环境变量WORKON_HOME来指定虚拟环境的保存目录</p>
+<p>使用以下命令启动 virtualenvwrapper</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soucre /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<p>可以把上述命令加入 .bashrc 文件中，避免每次输入启动命令</p>
+<h3 id="windows">Windows</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenvwrapper-win</span><br></pre></td></tr></table></figure>
+<p>与 Linux 一致，修改环境变量WORKON_HOME来指定虚拟环境的保存目录</p>
+<p>Windows 不需要输入启动命令即可使用</p>
+<h2 id="使用">使用</h2>
+<h3 id="创建虚拟环境">创建虚拟环境</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mkvirtualenv virtualenv_name</span></span><br><span class="line">mkvirtualenv -p python3.7 virtualenv_name # 指定 Python 版本</span><br></pre></td></tr></table></figure>
+<h3 id="启动虚拟环境">启动虚拟环境</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workon virtualenv_name</span><br></pre></td></tr></table></figure>
+<h3 id="退出虚拟环境">退出虚拟环境</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+<h3 id="删除虚拟环境">删除虚拟环境</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmvirtualenv virtualenv_name</span><br></pre></td></tr></table></figure>
+<p><strong>参考文献</strong></p>
+<p>virtualenvwrapper的使用： <a target="_blank" rel="noopener" href="https://blog.csdn.net/a200822146085/article/details/89048172">https://blog.csdn.net/a200822146085/article/details/89048172</a></p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2023-03-11T03:38:00.000Z" itemprop="datePublished">
+              2023-03-11
+            </time>
+          </div>
+          
+            <div>
+              标签: 
+  <li class="meta-text">
+   <a href="/tags/python/">python</a> 
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Breky </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

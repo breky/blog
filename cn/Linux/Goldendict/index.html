@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>「Goldendict」词典 | Breky</title>
+  
+    <link rel="icon" href="/assets/favicon.ico">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/breky.png)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Breky</div>
+        
+            <div>人心唯危，道心唯惟</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/tags/" class="Btn">
+              <li>标签</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  
+  <span style="display:block; width:auto; text-align:center; color: red;">
+  文章中涉及的命令，请在阅读完文章后酌情执行！
+</span>
+
+
+
+<article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>「Goldendict」词典</h1>
+            
+                <div class='ListMeta'>
+  <span>作者 <a href="https://blog.breky.win">Breky</a></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>发布于 <time datetime="2018-06-16T16:00:00.000Z" itemprop="datePublished">2018-06-17</time></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>分类
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/categories/Linux/">Linux</a> 
+  </li>
+
+
+  </ul>
+  
+
+  <span>&nbsp;&nbsp<span>
+
+  </span>标签
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/tags/goldendict/">goldendict</a> 
+  </li>
+
+  <li class="meta-text">
+   <a href="/tags/linux/">linux</a> 
+  </li>
+
+
+  </ul>
+  
+
+
+</div>
+
+            
+
+       
+    </header>
+
+    <section>
+    
+
+      <p>某些原因，事隔多年后又重新使用 Linux 系统，本机系统为 Manjaro 。安装 GoldenDict 时，发现本文当时记录的命令无效，现重新记录最新安装方法。</p>
+<span id="more"></span>
+<h2 id="最新安装方法23年3月20日更新">最新安装方法（23年3月20日更新）</h2>
+<p>不知道什么原因，Manjaro 软件库里没有 Goldendict 包了（<code>pacman -Ss goldendict</code> 无结果）,用 <strong>yay</strong> 到是能找到，但是包放在了 Github 上，下载不是很流畅（咱都懂），再加上 QT 版本的问题，总是不成功。在网上扒了很久，发现了<a target="_blank" rel="noopener" href="https://www.freesion.com/article/5809451385/">这篇文章</a>（安装方法在第一篇参考材料中），介绍用 <strong>snap</strong> 安装，成功了。</p>
+<p>具体方法：</p>
+<p>安装 snap</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo paman -S snapd</span><br><span class="line">sudo systemctl enable --now snapd.socket</span><br><span class="line">sudo  ln -s /var/lib/snapd/snap /snap</span><br></pre></td></tr></table></figure>
+<p>重启系统</p>
+<p>安装 GoldenDict</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo snap install goldendiction</span><br></pre></td></tr></table></figure>
+<p>打完收工。测试屏幕取词，没问题。测试发音，瞎了，不能用，哦 TM 耶。</p>
+<p>网上的方式都是使用外部音频程序（Edit=&gt;Preferences=&gt;Audio=&gt;Playbak=&gt;Use external program），如下图：</p>
+<figure>
+<img src="https://s1.ax1x.com/2023/03/22/ppaJrLQ.png" alt="" /><figcaption>Goldendict Audio</figcaption>
+</figure>
+<p>图中命令为 <code>cvlc --play-and-exit</code> 或者 <code>cvlc --paly-and-quit</code> （都试了），但是这个版本（1.5.0-RC2-85）的没用，至少我是没成功。好难受。</p>
+<p>官网的 <a target="_blank" rel="noopener" href="https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Linux-Portable">Github</a> 上还有一个 64 位最新的 <code>AppImage</code> 版（版本为 <code>continuous-1-g661dd4d</code>），下载、安装（哦，不用安装，双击运行就行）、测试，屏幕取词、发音（使用外部音频程序），都能正常运行。但是，屏幕取词用按键的话，不能选择 <code>Send translated word to main  window</code>（将翻译内容发送至主窗口）选项，设置如下图（设置的大意是：划词后，在 3 秒内按 ctrl 键，弹出翻译窗口）：</p>
+<figure>
+<img src="https://s1.ax1x.com/2023/03/22/ppaYa79.png" alt="" /><figcaption>Goldendict Send Translated Word</figcaption>
+</figure>
+<p>否则翻译窗口会在系统通知栏显示，需要单击一下才能显示出来，如下图：</p>
+<figure>
+<img src="https://s1.ax1x.com/2023/03/22/ppaYy6O.png" alt="" /><figcaption>Goldendict Popup</figcaption>
+</figure>
+<p>好吧，最后屏幕取词的按键我选择了 Ctrl + Alt 组合键，两个键单独使用会影响这两个键的组合键，如 Ctrl + C/V，Alt 在一些程序中是显示/隐藏菜单的键。</p>
+<p>另外一个问题（最后一个了，真的），没有启动菜单，只能双击 <code>AppImage</code> 那个文件，不想再折腾菜单了，放弃了，躺平了，爱咋咋地吧。</p>
+<h2 id="关于词典和构词法">关于词典和构词法</h2>
+<p>自定义词典和构词法还是用下面参考内容的方法。</p>
+<p>这两个版本不能用 <code>mdx</code> 格式的字典，我用了 <a target="_blank" rel="noopener" href="https://github.com/skywind3000/ECDICT/releases">skywind3000</a> 大神的《简明英汉字典增强版》的 ecdict-mdx-style-28.zip 词典（<code>mdx</code> 格式），读取字典后会闪退，是软件版本问题，大神说软件不能用 <code>1.0</code> 版的，要用 <code>1.5</code> 以后的版本，这两个版本完美中枪了（T_T!） 。</p>
+<p>构词法参考的是 <a target="_blank" rel="noopener" href="https://blog.csdn.net/lzt2017?type=blog">day_day_grow 大神</a> 的 <a target="_blank" rel="noopener" href="https://blog.csdn.net/lzt2017/article/details/108337013">这篇文章</a>。</p>
+<h2 id="关于资源">关于资源</h2>
+<p>Goldendict 的 <code>AppImage</code> 文件和构词法（<code>en_US_1.0.zip</code>）放在了<a target="_blank" rel="noopener" href="https://breky.lanzoue.com/b00qucw5g">这里</a>，密码：bsga</p>
+<p>词典放在了某云上，<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Do7Ln7sur5c7-doYTd-7DQ">这是链接</a> ，提取码: bykk，压缩后文件还是太大了，网上找不到好的存放位置。</p>
+<p>PS：这个词典我也忘了转存的哪位大神的资源了，对不起！</p>
+<h2 id="以下内容仅供参考18年6月17日">以下内容仅供参考（18年6月17日）</h2>
+<p>系统：「Elementary OS」--- 基于「Ubuntu 16.04」</p>
+<p>「Goldendict」在「Linux」系统中表现良好，支持取词，自定义词典。</p>
+<h3 id="安装">安装</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install goldendict <span class="comment"># Debian/Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S goldendic <span class="comment"># Arch or Manjaro</span></span></span><br></pre></td></tr></table></figure>
+<p>也可以在官网的「Github」上下载， <a target="_blank" rel="noopener" href="https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Linux-Portable">下载地址</a></p>
+<h3 id="使用">使用</h3>
+<h4 id="自定义词典">自定义词典</h4>
+<p>支持的词典格式：「dsl」、「bgl」、「stardict」、... ...</p>
+<p>安装方法：</p>
+<ol type="1">
+<li>新建目录，如「 ~/home/usrname/Applicatioin/goldendict/dict 」。「usrname」：用户名；「Applications/goldendict/dict」：随意，自己能找到就好。</li>
+<li>将下载的词典放在新建的目录中。</li>
+<li>打开「Goldendict」，编辑=》词典=》词典来源=》文件=》添加，逐一选择词典，最后 重新扫描</li>
+<li>勾选词典，应用。</li>
+</ol>
+<h4 id="词形匹配">词形匹配</h4>
+<p>编辑=》词典=》词典来源=》构词法规则库，设置 构词法规则库 目录，勾选</p>
+<h3 id="词典">词典</h3>
+<p>在家目录中执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> git://git.coding.net/breky-zhao/goldendict.git <span class="comment"># 不能用了，手欠删了，我有罪（2023年3月20日）。</span></span></span><br></pre></td></tr></table></figure>
+<p>将下载目录中的两个文件复制到某个目录中，按照自定义词典的安装方法安装。</p>
+<p><em>注</em></p>
+<p>「dict」：词典目录</p>
+<p>「morphology」：构词法规则库目录</p>
+<hr />
+<h3 id="参考">参考</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.yuanbin.me/posts/2013/01/goldendictxia-san-da-you-zhi-ci-ku-shi-yong-xiao-ji.html">goldendict下优质词典简介及安装</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yanyingwang/goldendict">yanyingwang/goldendict</a></p>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2018-06-16T16:00:00.000Z" itemprop="datePublished">
+              2018-06-17
+            </time>
+          </div>
+          
+            <div>
+              标签: 
+  <li class="meta-text">
+   <a href="/tags/goldendict/">goldendict</a> 
+  </li>
+
+  <li class="meta-text">
+   <a href="/tags/linux/">linux</a> 
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Breky </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

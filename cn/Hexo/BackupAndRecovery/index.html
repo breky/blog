@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hexo 博客网站的备份与恢复 | Breky</title>
+  
+    <link rel="icon" href="/assets/favicon.ico">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/breky.png)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Breky</div>
+        
+            <div>人心唯危，道心唯惟</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/tags/" class="Btn">
+              <li>标签</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  
+  <span style="display:block; width:auto; text-align:center; color: red;">
+  文章中涉及的命令，请在阅读完文章后酌情执行！
+</span>
+
+
+
+<article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>Hexo 博客网站的备份与恢复</h1>
+            
+                <div class='ListMeta'>
+  <span>作者 <a href="https://blog.breky.win">Breky</a></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>发布于 <time datetime="2019-02-21T16:00:00.000Z" itemprop="datePublished">2019-02-22</time></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>分类
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/categories/Hexo/">Hexo</a> 
+  </li>
+
+
+  </ul>
+  
+
+  <span>&nbsp;&nbsp<span>
+
+  </span>标签
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/tags/manjaro/">manjaro</a> 
+  </li>
+
+  <li class="meta-text">
+   <a href="/tags/hexo/">hexo</a> 
+  </li>
+
+  <li class="meta-text">
+   <a href="/tags/github/">github</a> 
+  </li>
+
+
+  </ul>
+  
+
+
+</div>
+
+            
+
+       
+    </header>
+
+    <section>
+    
+
+      <p>使用 Hexo + Github 搭建个人博客后，有重装系统（或使用新电脑）的情竞时，都必需重新搭建，并且所有文章也都需要备份。因此，搭建完成后可以将本地网站根目录中的内容备份（包括文章）。本文记录使用 Hexo + Github 搭建的网站的备份和恢复。</p>
+<p>本机系统为 Manjaro</p>
+<p><strong>如果参照本文对网站进行备份，请通篇阅读后再执行命令。</strong></p>
+<span id="more"></span>
+<h2 id="备份">备份</h2>
+<p>Hexo 的部署命令（<code>hexo d</code>）是将 <code>hexo g</code> 产生的 public 目录中所有文件上传到远程仓，而备份的内容是本地网站根目录下的所有内容。所以，备份的方式有3种：</p>
+<ol type="1">
+<li>远程仓分两个分支（master 和 backup），master 分支放 public 目录中的文件，backup 分支放本地网站根目录下的所有内容。<br />
+</li>
+<li>远程仓仅一个 master 分支，将本地网站根目录下的所有内容及 public 文件都上传到仓内，启用 Github Page 功能时，将网站部署到 master分支的 public 目录上。</li>
+<li>两个仓（blog 和 blog_backup），blog 仓放 public 目录中的内容，blog_backup 仓放本地网站根目录下所有内容。</li>
+</ol>
+<p>方式1 简单，但没搞明白远程仓的两个分支怎样同步本地仓的一个分支，略。方式2 也简单，但是 Github 在国内不稳，而国内 Gitee 的 Page 功能需要 Pro 版才可以自定义域名。嗯～，好吧，我承认针对方式2 我没有试验过，但理论上可行。所以，我选了方式3，Github 仓部署网站，Gitee 仓存放本地网站根目录下所有内容。</p>
+<h3 id="备份前的准备工作">备份前的准备工作</h3>
+<p>备份前的准备工作就是要实现 <code>hexo d</code>一键部署。</p>
+<p>假如建站时执行的命令是 <code>hexo inin Demo</code>，则 Demo 就是本地网站根目录。两个远程仓，Github 上的名为 blog，Gitee 上的名为 blog_backup（备份用）。</p>
+<p>因为是本地一个仓对应两个远程仓，所以很容易操作。Demo 中添加远程仓别名 blog 对应 Github 上的 blog 仓，Demo/public 添加远程仓别名 blog_backup，对应 Gitee 上的 blog_backup 仓，然后逐一 push。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下命令是实验内容，不要执行</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Demo 目录中执行</span></span><br><span class="line">git init</span><br><span class="line">git remote add blog github_rep_ssh_url  # github_rep_ssh_url 为 blog 仓的 ssh 地址</span><br><span class="line"></span><br><span class="line">hexo clean</span><br><span class="line">hexo g # 执行该条命令后会在 Demo 目录中产生 public 目录，这个目录中的内容需要上传到 blog 仓中</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Demo/public  目录中执行</span></span><br><span class="line">git init # 不知道能不能执行</span><br><span class="line">git remote add blog_backup gitee_rep_ssh_url # gitee_rep_ssh_url 为 blog_backup 仓的 ssh 地址</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git push 操作</span></span><br></pre></td></tr></table></figure>
+<p>但是 ，每次执行<code>hexo g</code>命令后，public 目录都会先删除再新建，很麻烦，并且 Git 机制好像也不允许嵌套（Demo目录及 Demo/public 子目录都 <code>git init</code>）。但可是，很幸运，Hexo 的 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deploy-git</a> 插件帮我们解决了这个问题，它会帮我们将 public 文件中的内容上传到远程仓中。所以，这个插件是刚需<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
+<p>安装 hexo-deploy-git 插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Demo 目录中</span><br><span class="line">npm install hexo-deploy-git --save</span><br></pre></td></tr></table></figure>
+<p>然后修改 Demo 根目录下的 <code>_config.yml</code>，新增 deploy 字段内容（或找到并完善） <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:breky/blog.git  # 网站部署到了 Github 上，所以这里填写的是 Github 上 blog 仓的 ssh 地址</span><br><span class="line">  branch: main  # Github 仓好像不支持 master 分支名了</span><br><span class="line">  message: </span><br></pre></td></tr></table></figure></p>
+<p>之后就可以使用<code>hexo d</code>一键部署了。</p>
+<h3 id="备份工作">备份工作</h3>
+<p>实现<code>hexo d</code>一键部署后，备份方式3 就简化成把 Demo 目录中的所有内容上传到 Gitee 上的 blog_backup 仓中了。在 Demo 目录中执行以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add blog_backup blog_backup_ssh_url  # Gitee 上的 blog_backup 仓的 ssh 地址</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上命令两条命令一次就够</span></span><br></pre></td></tr></table></figure>
+<p>在 Demo 目录中新建 <code>.gitignore</code>文件，内容为 git 上传时忽略的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure>
+<p>继续在 Demo 目录中执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push -u blog_backup master #  gitee 上还是 master 分支名</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上三条命令每次备份都需执行</span></span><br></pre></td></tr></table></figure>
+<h3 id="一键部署及备份">一键部署及备份</h3>
+<p>每次部署及备份的过程就是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push -u blog_backup</span><br></pre></td></tr></table></figure>
+<p>在 Demo 目录中新建 shell 文件，实现一键部署及备份，shell 文件名为 <code>Deploy_Backup.sh</code>，内容为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Starting Deploy and Backup&quot;</span><br><span class="line">rm -rf ./.deploy_git/  # 每次 hexo d 后都会产生，所以删除了吧，有时候网站的内容与本地不一致也是这个目录的原因</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push -u blog_backup</span><br><span class="line">echo &quot;Over&quot;</span><br></pre></td></tr></table></figure>
+<p>修改 Deploy_Backup.sh 文件属性</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 Deploy_Backup.sh</span><br></pre></td></tr></table></figure>
+<p>每次需要部署和备份时仅需要执行以下命令，实现一键部署及备份</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Deploy_Backup.sh</span><br></pre></td></tr></table></figure>
+<h2 id="恢复">恢复</h2>
+<p>将 gitee 上的 blog_backup 仓 pull 到本地后，执行 <code>npm install</code> 命令。</p>
+<h3 id="恢复前的准备工作">恢复前的准备工作</h3>
+<p>恢复前本机需先<a href="https://blog.breky.win/cn/Hexo/hexo_install/">安装 Hexo</a>和 Git（Manjaro 自带此处略过）。安装完成后就直接进行恢复工作，不要建站<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<h3 id="恢复工作">恢复工作</h3>
+<p>在本机的某个位置（<code>如：~/Document/</code>）新建网站根目录（<code>如：Demo</code>），最后网站根目录 Demo 的完整路径为<code>~/Document/Demo</code>，之后的所有操作都会在 Demo 目录中执行<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add demo backup_rep_ssh  # 备份仓 ssh 链接</span><br><span class="line">git pull demo master  # master 是本仓分支名</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上三条命令将本仓内容下载到了本地的 Demo 目录中</span></span><br><span class="line"></span><br><span class="line">npm install  # 新建 Hexo Scripts（hexo clean, hexo g, hexo d, hexo s 命令） 及安装需要的 Hexo 插件，即 package.json 中的内容</span><br></pre></td></tr></table></figure>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>可以将 hexo-deploy-git 添加至 package.json 中，每次恢复时就不用单独安装这个插件了。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>使用 <code>hexo init demo</code> 建站后，Demo 目录中有内容（本仓已有）。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>后续会把本仓内容 pull 到 Demo 目录中，如果 clone 下来，则更改 blog_backup 文件名为 Demo（直接下载则需要先解压后更名）， 之后的所有操作同样在 Demo 目录中执行。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2019-02-21T16:00:00.000Z" itemprop="datePublished">
+              2019-02-22
+            </time>
+          </div>
+          
+            <div>
+              标签: 
+  <li class="meta-text">
+   <a href="/tags/manjaro/">manjaro</a> 
+  </li>
+
+  <li class="meta-text">
+   <a href="/tags/hexo/">hexo</a> 
+  </li>
+
+  <li class="meta-text">
+   <a href="/tags/github/">github</a> 
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Breky </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>

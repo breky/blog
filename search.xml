@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>几个图床</title>
+      <link href="/cn/Markdown/ImageHost/"/>
+      <url>/cn/Markdown/ImageHost/</url>
+      
+        <content type="html"><![CDATA[<p>早以前买了个域名，想着用它在国内的几个云上搭个图床自己用，谁成想必需备案才能用 <code>https</code>，可惜我只买了域名没买空间，不能备案。自己的静态博客放又了在 <code>github</code> 上，图片必需用 <code>https</code> 链接才行，只能放弃。还好找到了几个国内可以用的图床，还支持 <code>https</code>。</p><span id="more"></span><h3 id="图几度图床">图几度图床</h3><p><a href="https://img.tujidu.com/index.html">图几度</a>，这个图床是在用 <a href="https://github.com/langren1353/GM_script">AC-Baidu</a> 的时候，在设置里找到的，我好贼。不过最大存储容量和存储时间不清楚。</p><figure><img src="https://img.tujidu.com/image/6432ceb77caf0.jpg" alt="" /><figcaption>图几度</figcaption></figure><h3 id="风筝图床">风筝图床</h3><p><a href="https://www.imgbed.link/">风筝</a>，单文件 <code>1Gb</code> 呀，牛批。最大存储容量不清楚。</p><figure><img src="https://imgbed.link/file/22070" alt="" /><figcaption>风筝</figcaption></figure><h3 id="路过图床"><s>路过图床</s></h3><p><del><a href="https://cdnjson.com/">路过</a>，说是全球 CDN 加速。支持单张 <code>10Mb</code>，最大存储容量和存储时间也不清楚。</del></p><figure><img src="https://cdnjson.com/image/screenshot-2023-04-09-22-59.jzDJ3" alt="" /><figcaption>路过</figcaption></figure><p>路过图床中图片的外链，在 <code>github</code> 上不能用呀。上边的路过两个字其实是个图片呦。</p><h3 id="imgse-图床">imgse 图床</h3><p><a href="https://imgse.com/">imgs</a>，有广告，但问题不大，也说是全球加速。支持单张 <code>10Mb</code>，最大存储容量和存储时间也不清楚。</p><figure><img src="https://s1.ax1x.com/2023/04/09/ppbBGgx.png" alt="" /><figcaption>imgs 图床</figcaption></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu 安装记录（持续更新）</title>
+      <link href="/cn/Ubuntu/InstallUbuntuRecord/"/>
+      <url>/cn/Ubuntu/InstallUbuntuRecord/</url>
+      
+        <content type="html"><![CDATA[<p>邪教教徒不好做，以前用的 <code>Manjaro</code>，改邪归正，用 <code>Ubuntu</code> 了。这篇文章记录在使用过程中遇到的问题。</p><span id="more"></span><h2 id="年4月3日-更新">2023年4月3日 更新</h2><h3 id="关于输入法">关于输入法</h3><p><code>Manjaro</code> 系统没装中文输入法，安装了 <code>Fcitx</code>，<code>ElementaryOS</code> 时自带的 <code>ibus</code> 系统图标有问题，也换成了 <a href="https://blog.breky.win/tags/fcitx/">Fcitx</a>，但是 <code>Ubuntu 22.04 LTS</code> 中自带的 <code>ibus</code> 很好，就没再装。</p><h3 id="sublime-text-4-激活">Sublime-text 4 激活</h3><ol type="1"><li>备份 <code>sublime_text（路径为 /opt/sublime_text/sublime_text）</code> 文件</li><li>进入 <a href="https://hexed.it">Hexed</a> 网站</li><li>打开 <code>sublime_text</code> 文件</li><li>搜索 <code>807805000f94c1</code> 并替换为 <code>c64005014885c9</code></li><li>导出 <code>sublime_text</code> 文件并修改文件属性为 <code>755</code>（<code>chmod 755 sublime_text</code>）</li><li>将导出的 <code>sublime_text</code> 复制或移动到 <code>/opt/sublime_text</code> 目录中（<code>sudo cp/mv</code>）</li></ol><p><strong>参考：</strong> <a href="https://blog.csdn.net/weixin_45700528/article/details/129382166">激活sublime text4</a></p><h3 id="sublime-text-代码片段功能">Sublime-text 代码片段功能</h3><p><code>sublime-text</code> 的代码片段（<code>snippet</code>）可以实现输入几个特定字符后按 <code>tab</code> 键转化为指定的内容。</p><p>例如，写 <code>Hexo</code> 博客文章时，需要写 <code>yaml</code> 头文件，每篇文章都要写，很麻烦。使用 <code>snippet</code>，就使其变得简单了很多。<strong>具体过程如下：</strong></p><p><strong>新建代码片段</strong>。单击<code>工具 =&gt; 插件开发 =&gt; 新建代码片段</code>，文件内容如下：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;snippet&gt;</span><br><span class="line">&lt;content&gt;&lt;![CDATA[</span><br><span class="line">Hello, $&#123;1:this&#125; is a $&#123;2:snippet&#125;.</span><br><span class="line">]]&gt;&lt;/content&gt;</span><br><span class="line">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span><br><span class="line">&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;</span><br><span class="line">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span><br><span class="line">&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span><br><span class="line">&lt;/snippet&gt;</span><br></pre></td></tr></table></figure><p><strong>修改转化内容。</strong>把 <code>Hello, $&#123;1:this&#125; is a $&#123;2:snippet&#125;.</code> 这行内容修改为想要的内容。</p><p><strong>指定触发字符。</strong>去掉 <code>&lt;tabTrigger&gt;</code> 标签两边的注释符号（<code>&lt;!--</code> 和 <code>--&gt;</code>）</p><p>最后选个合适的名字，保存在默认目录（<code>~/.conf/sublime-text/Packages/User</code>）中即可。当然为了方便管理，在默认目录中新建个目录，将所有自定义的 <code>snippet</code> 文件（<code>.sublime-snippet</code>）都保存里面也可以。</p><p>我用的一个 <code>snippet</code> 文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;snippet&gt;</span><br><span class="line">&lt;content&gt;&lt;![CDATA[</span><br><span class="line">---</span><br><span class="line">title: $&#123;1: &#125;  </span><br><span class="line">date: $&#123;2: &#125;  </span><br><span class="line">author: Breky  </span><br><span class="line">categories: $&#123;3: &#125;  </span><br><span class="line">tags: $&#123;4: &#125; </span><br><span class="line">---</span><br><span class="line">]]&gt;&lt;/content&gt;</span><br><span class="line">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span><br><span class="line">&lt;tabTrigger&gt;mdt&lt;/tabTrigger&gt;</span><br><span class="line">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span><br><span class="line">&lt;!-- &lt;scope&gt;source.markdown&lt;/scope&gt; --&gt;</span><br><span class="line">&lt;description&gt;YAML Title&lt;/description&gt;</span><br><span class="line">&lt;/snippet&gt;</span><br></pre></td></tr></table></figure><p><strong>解释：</strong>在任意文件中输入 <code>mdt</code> 然后按 <code>tab</code> 键，<code>mdt</code> 转化为</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">$&#123;1:</span> <span class="string">&#125;</span>  </span><br><span class="line"><span class="attr">date:</span> <span class="string">$&#123;2:</span> <span class="string">&#125;</span>  </span><br><span class="line"><span class="attr">author:</span> <span class="string">Breky</span>  </span><br><span class="line"><span class="attr">categories:</span> <span class="string">$&#123;3:</span> <span class="string">&#125;</span>  </span><br><span class="line"><span class="attr">tags:</span> <span class="string">$&#123;4:</span> <span class="string">&#125;</span> </span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure><p>光标默认在 <code>$&#123;1: &#125;</code> 位置上，输入完其上的内容后，再依次按 <code>tab</code> 键，依次跳到 <code>$&#123;2: &#125;, $&#123;3: &#125;, $&#123;4: &#125;</code> 位置上。</p><p><strong>其他问题。</strong>其他博主有强调过，需要使用 <code>&lt;scope&gt;</code> 标签来指定使用范围，比如 <code>&lt;scope&gt;source.python&lt;/scope&gt;</code> 是说当前的 <code>snippet</code> 在 <code>python</code> 环境中才生效。但是我改成 <code>&lt;scope&gt;source.md&lt;/scope&gt;</code> 或者 <code>&lt;scope&gt;source.markdown&lt;/scope&gt;</code>，在 <code>.md</code> 或者 <code>.markdown</code> 文件中都不能生效。最后只能不指定使用范围，在所有文件中都可以用，才可以在 <code>markdown</code> 文件中使用。</p><p><strong>参考：</strong> <a href="https://www.likecs.com/show-308363355.html">Sublime Text Snippets（代码片段）功能</a></p><h3 id="关于-appimage-格式的软件">关于 AppImage 格式的软件</h3><p><a href="https://blog.csdn.net/aboutmn/article/details/87254930">AppImage</a> 格式的软件几乎可以在任何 <code>Linux</code> 系统中都可以运行，并且不需要给系统安装任何软件所需依赖，因为它自带。</p><p>对于 <code>Manjaro</code> 系统，给 <code>AppImage</code> 格式软件添加可执行权限后，在终端输入 <code>./xxx.AppImage</code> 直接运行。</p><p><code>Ubuntu 22.04 LTS</code> ，因为缺少 <code>AppImage</code> 运行环境，不能直接运行。又但是，它自带所有运行时所需依赖，所以它可以像 <code>Win</code> 系统中的绿色软件一样，解压后找到可执行文件即可运行。</p><p><strong>具体过程：</strong></p><p><strong>解压 <code>AppImage</code> 文件：</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /path/to/xxx.AppImage</span><br><span class="line"></span><br><span class="line">chmod 755 xxx.AppImage  </span><br><span class="line"></span><br><span class="line">./xxx.AppImage --appimage-extract</span><br></pre></td></tr></table></figure><p><strong>修改 <code>.desktop</code> 文件。</strong>解压完成后，同目录下会有一个子目录（目录名不确定，以 <code>appFolder</code> 为例），子目录中有 <code>xxx.desktop</code> 文件，修改其中的 <code>Exec</code> （子目录中的可执行文件，一般与 <code>AppImage</code> 文件同名或是 <code>AppRun</code> 文件）和 <code>Icon</code>（子目录中的 <code>.png</code> 文件）的值（都需要绝对路径）。</p><p><strong>创建启动图标。</strong>在 <code>~/.loacl/share/applications</code> 目录中新建 <code>xxx.desktop</code> 文件的软链即可以在启动器（不知道叫什么，就是系统的所有软件）中找到软件的启动图标。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新建软链</span></span><br><span class="line">cd /path/to/xxx.AppImage/appFolder  # 可以省略，创建软链需要用绝对路径</span><br><span class="line">ln -s /path/to/xxx.AppImage/appFolder/xxx.desktop /home/usrname/.local/share/applications/xxx.desktop  # username 为用户名</span><br></pre></td></tr></table></figure><p><strong>举个栗子。</strong></p><p>以 <a href="https://motrix.app/">Motrix</a> 为例。<code>Motrix-1.6.11.AppImage</code> 文件路径为 <code>/home/breky/Applications/Motrix</code>，<code>breky</code> 是用户名。</p><p>执行 <code>./Motrix-1.6.11.AppImage --appimage-extract</code> 命令后得到的子目录名改成了 <code>runtime</code>，原名忘了叫啥了。</p><figure><img src="https://imgbed.link/file/21600" alt="" /><figcaption>runtime folder</figcaption></figure><p>图中标号 3 的文件为启动图标，修改后的内容如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=Motrix</span><br><span class="line">Exec=/home/breky/Applications/Motrix/runtime/motrix --disable-gpu-sandbox %U</span><br><span class="line">Terminal=false</span><br><span class="line">Type=Application</span><br><span class="line">Icon=/home/breky/Applications/Motrix/runtime/motrix.png</span><br><span class="line">Categories=Network</span><br></pre></td></tr></table></figure><p><code>Exec</code> 和 <code>Icon</code> 两项的值分别指向图中标号为 2 和 标号为 4 的文件，<code>Exec</code> 也可以指向图中标号为 5 的 <code>AppRun</code> 文件。</p><p>创建启动图标软链，命令为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/breky/Applications/Motrix/runtime/motrix.desktop /home/breky/.local/share/applications/motrix.desktop</span><br></pre></td></tr></table></figure><p>之后，在 <code>home/breky/.local/share/applications/</code> 目录中会有 <code>motrix.desktop</code> 文件的软链。</p><figure><img src="https://imgbed.link/file/21601" alt="" /><figcaption>.local/share/applications</figcaption></figure><p>最后，单击下图红圈内的图标，就可以找到了。</p><figure><img src="https://imgbed.link/file/21602" alt="" /><figcaption>win+a</figcaption></figure><p>完成，哦耶。</p><p><strong>单击后不能运行的情况：</strong></p><ol type="1"><li><code>Exec</code> 的值不对。使用绝对路径并认真核对。</li><li><code>runtime</code> 目录中的 <code>motrix.desktop</code> 文件需要勾选 <code>允许执行文件</code>（<code>右键 =&gt; 属性 =&gt; 权限</code> 就能看到了）。</li><li><code>runtime</code> 目录中的 <code>motrix</code>（可执行文件）和 <code>motrix.desktop</code> 文件需要添加执行权限（<code>chmod +x motrix/motrix.desktop</code>）。</li><li>再不行，在终端直接运行 <code>./motrix</code>，查看错误提示，根据提示逐一修复。(一般不会，但 <code>motrix</code> 需要添加选项 <code>--disable-gpu-sandbox %U</code>)。</li></ol><p><strong>参考：</strong></p><ol type="1"><li><a href="https://zhuanlan.zhihu.com/p/389052463">Arch Linux - AppImage</a></li><li><a href="https://blog.csdn.net/aboutmn/article/details/87254930">什么是AppImage</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Manjaro 自动启动程序</title>
+      <link href="/cn/Manjaro/AutoStart/"/>
+      <url>/cn/Manjaro/AutoStart/</url>
+      
+        <content type="html"><![CDATA[<p>Manjaro 系统的 <code>~/.config/autostart/</code> 目录中存放的都是开机自启的软件，在这个目录中给需要自动的软件创建一个 <code>.desktop</code> 文件，内容为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=软件名（随意）</span><br><span class="line">Type=Application</span><br><span class="line">Exec=软件路径</span><br><span class="line">Icon=软件图标路径  # 可选</span><br></pre></td></tr></table></figure><span id="more"></span><p>例如，<a href="https://blog.breky.win/cn/Linux/Goldendict/">这篇文章</a>中提到的 <code>AppImage</code> 版的 <code>GoldenDict</code> 软件，没有启动图标，软件的开机自启功能也不能用，可以自定义一个，具体过程如下：</p><p><strong>首先</strong>，在某个地方新建一个 shell 文件（如：<code>~/.autostart.sh</code>），内容是软件的启动文件（<code>AppImage</code> 文件可以直接运行）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup /路/径/to/xxx.AppImage  &gt;&gt; /路/径/to/log.txt 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure><p><strong>然后</strong>，添加执行权限</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~/.autostart.sh</span><br></pre></td></tr></table></figure><p><strong>最后</strong>，在 <code>~/.config/autostart/</code> 目录中新建一个 <code>.desktop</code> 文件，如 <code>autostart.desktop</code></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=AutoStartShell</span><br><span class="line">Type=Application</span><br><span class="line">Exec=/home/usrname/.autostart.sh</span><br></pre></td></tr></table></figure><p>打完收工。</p><p>之后在 <code>autostart.sh</code> 文件中添加需要开机自启的软件命令就好了，就不用每个需要开机自启的软件都创建一个 <code>.desktop</code> 文件了，哦耶。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Manjaro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> manjaro </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 插件</title>
+      <link href="/cn/Hexo/HexoPlugins/"/>
+      <url>/cn/Hexo/HexoPlugins/</url>
+      
+        <content type="html"><![CDATA[<p>Hexo 博客中用到的插件，Hexo 插件官网<a href="https://hexo.io/plugins/">地址</a>。</p><span id="more"></span><h3 id="hexo-deploy-git">hexo-deploy-git</h3><p>实现一键部署的插件，在网站根目录下执行以下 shell 命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deploy-git --save</span><br></pre></td></tr></table></figure><h3 id="hexo-renderer-pandoc">hexo-renderer-pandoc</h3><p>Hexo 自带的 markdown 渲染插件，只能解析标准的 markdown 语法，对脚注、todolist 等这种非标准语法不能解析，而 hexo-render-pandoc 插件可以。</p><p>安装插件之前需要安装 <a href="https://www.pandoc.org/">pandoc</a></p><p>Manjaro 等 Arch 类系统安装命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S pandoc-cli</span><br></pre></td></tr></table></figure><p>其他系统请参考 <a href="https://www.pandoc.org/installing.html">pandoc 官网安装文档</a></p><p>安装 hexo-renderer-pandoc 插件，在网站根目录下执行以下 shell 命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure><p><strong>todolist 语法：</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 第一件要做的事（未完成）</span><br><span class="line"><span class="bullet">-</span> [x] 第二件要做的事（已完成）</span><br><span class="line"><span class="bullet">-</span> [ ] 第三件要做的事（未完成）</span><br></pre></td></tr></table></figure><p>渲染后的结果：</p><ul class="task-list"><li><input type="checkbox" disabled="" />第一件要做的事（未完成）</li><li><input type="checkbox" disabled="" checked="" />第二件要做的事（已完成）</li><li><input type="checkbox" disabled="" />第三件要做的事（未完成）</li></ul><p><strong>脚注语法：</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bulabulalalalalal[^1]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文章结尾</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">注解内容</span></span><br></pre></td></tr></table></figure><p>渲染后结果：</p><p>bulabulalalalalal<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><p>文章结尾</p><section class="footnotes" role="doc-endnotes"><hr /><ol><li id="fn1" role="doc-endnote"><p>注解内容<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li></ol></section>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> plugin </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Virtualenvwrapper 安装与使用</title>
+      <link href="/cn/Python/virtualenvwrapper/"/>
+      <url>/cn/Python/virtualenvwrapper/</url>
+      
+        <content type="html"><![CDATA[<p>Virtualenvwrapper是用来管理virtualenv的扩展包，方便env虚拟环境管理</p><span id="more"></span><h2 id="安装">安装</h2><h3 id="linux">Linux</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install virtualenvwrapper</span><br></pre></td></tr></table></figure><p>virtualenvwrapper默认将所有的虚拟环境放在～/.virtualenvs目录下管理，可以修改环境变量WORKON_HOME来指定虚拟环境的保存目录</p><p>使用以下命令启动 virtualenvwrapper</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">soucre /usr/local/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure><p>可以把上述命令加入 .bashrc 文件中，避免每次输入启动命令</p><h3 id="windows">Windows</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenvwrapper-win</span><br></pre></td></tr></table></figure><p>与 Linux 一致，修改环境变量WORKON_HOME来指定虚拟环境的保存目录</p><p>Windows 不需要输入启动命令即可使用</p><h2 id="使用">使用</h2><h3 id="创建虚拟环境">创建虚拟环境</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mkvirtualenv virtualenv_name</span></span><br><span class="line">mkvirtualenv -p python3.7 virtualenv_name # 指定 Python 版本</span><br></pre></td></tr></table></figure><h3 id="启动虚拟环境">启动虚拟环境</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workon virtualenv_name</span><br></pre></td></tr></table></figure><h3 id="退出虚拟环境">退出虚拟环境</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure><h3 id="删除虚拟环境">删除虚拟环境</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmvirtualenv virtualenv_name</span><br></pre></td></tr></table></figure><p><strong>参考文献</strong></p><p>virtualenvwrapper的使用： <a href="https://blog.csdn.net/a200822146085/article/details/89048172">https://blog.csdn.net/a200822146085/article/details/89048172</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>「vim」编辑器的「Markdown」插件</title>
+      <link href="/cn/Linux/vim_markdown/"/>
+      <url>/cn/Linux/vim_markdown/</url>
+      
+        <content type="html"><![CDATA[<p>「vim」的三件插件，使「vim」在编辑「.md」文件时，在浏览器实时预览。</p><span id="more"></span><h3 id="第一个vim插件">第一个「vim」插件</h3><p>这个插件是「vim」管理插件的插件，用这个插件来安装另外两个插件这个插件叫「Vundle」，具体安装方法，<a href="http://www.jianshu.com/p/1a6f15afa11f">看这里</a></p><h3 id="另外两个插件">另外两个插件</h3><p>·「vim-markdown」插件<br />·「vim-instant-markdown」插件</p><h5 id="安装vim-markdown插件">安装「vim-markdown」插件</h5><p>在「.vimrc」中加入以下内容</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Plugin <span class="string">&#x27;godlygeek/tabular&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;plasticboy/vim-markdown&#x27;</span></span><br></pre></td></tr></table></figure><p>然后在终端中直接输入</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">vim</span></span><br></pre></td></tr></table></figure><p>后回车，再直接输入</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">:PluginInstall</span><br></pre></td></tr></table></figure><p>等待安装完成。</p><h5 id="安装vim-instant-markdown插件">安装「vim-instant-markdown」插件</h5><p>安装这个插件之前，需要安装「nodejs」，具体安装方法，<a href="">看这里</a></p><p>「node.js」安装完成后，输入以下内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sudo npm install instant-markdown-d </span><br></pre></td></tr></table></figure><p>等待安装完成。</p><p>开始安装「vim-instant-markdown」插件</p><p>在「.vimrc」中加添加以下内容</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Plugin <span class="string">&#x27;suan/vim-instant-markdown&#x27;</span></span><br></pre></td></tr></table></figure><p>同样执行命令</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">:PluginInstall</span><br></pre></td></tr></table></figure><p>等待安装完成。</p><p>至此，操作完成。用「vim」编辑「Markdown」文档，默认浏览器会自动打开并显示内容。</p><hr /><h3 id="参考">参考</h3><p><a href="http://www.jianshu.com/p/44d31327f953">「Ubuntu：Vim+Markdown的结合方法之一_G01」</a></p><p><a href="http://www.jianshu.com/p/1a6f15afa11f">「vim 安装 Vundle 插件」</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> plugin </tag>
+            
+            <tag> markdown </tag>
+            
+            <tag> vim </tag>
+            
+            <tag> 插件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>安装「fcitx」输入法</title>
+      <link href="/cn/Linux/fxcit/"/>
+      <url>/cn/Linux/fxcit/</url>
+      
+        <content type="html"><![CDATA[<p>我用的是「elementaryos loki x64」，自带输入法「ibus」。本来，对于我这种能躺着绝不坐着的懒人来说，「ibus」也可以用。让我放弃它的唯一原因是：「ibus」在托盘的图标，不能随着输入法的切换而变换。所以，我放弃了「ibus」，转投「fcitx」。</p><span id="more"></span><p>没什么难的，无非就是添加个源，然后安装就好了。</p><p>添加源： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:fcitx-team/nightly</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p><p>安装「fcitx」: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fcitx fcitx-config-gtk fcitx-table-all</span><br></pre></td></tr></table></figure></p><p>重启，了事。</p><p>因为，我习惯用五笔，就没有装拼音，如果要装拼音，上面的命令加入「fcitx-googlepinyin fcitx-cloudpinyin」。当然，搜狗输入法有「linux」版，装这个也行。具体方法，在官网上下载搜狗拼音的「.deb」包，然后用「gdebi」命令安装就成了。至于「fcitx」和搜狗，谁先装谁后装，随意，这不是问题。</p><p>最后，要不要缷载「ibus」，自己决定吧，反正我就没缷。</p><p>这儿有个问题：如果是刚装好的系统，添加源的时侯，有可能提示找不到命令。</p><p>解决方法放在另一篇文章中了「<a href="http://www.jianshu.com/p/81ab76d33a9c">Elementary OS 安装完成后的一些动作</a>」</p><hr /><p>参考<br />　　<a href="http://www.jianshu.com/p/1e72290e77fe">Elementary os安装Fcitx中文输入法</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> fcitx </tag>
+            
+            <tag> elementaryos </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hexo 博客网站的备份与恢复</title>
+      <link href="/cn/Hexo/BackupAndRecovery/"/>
+      <url>/cn/Hexo/BackupAndRecovery/</url>
+      
+        <content type="html"><![CDATA[<p>使用 Hexo + Github 搭建个人博客后，有重装系统（或使用新电脑）的情竞时，都必需重新搭建，并且所有文章也都需要备份。因此，搭建完成后可以将本地网站根目录中的内容备份（包括文章）。本文记录使用 Hexo + Github 搭建的网站的备份和恢复。</p><p>本机系统为 Manjaro</p><p><strong>如果参照本文对网站进行备份，请通篇阅读后再执行命令。</strong></p><span id="more"></span><h2 id="备份">备份</h2><p>Hexo 的部署命令（<code>hexo d</code>）是将 <code>hexo g</code> 产生的 public 目录中所有文件上传到远程仓，而备份的内容是本地网站根目录下的所有内容。所以，备份的方式有3种：</p><ol type="1"><li>远程仓分两个分支（master 和 backup），master 分支放 public 目录中的文件，backup 分支放本地网站根目录下的所有内容。<br /></li><li>远程仓仅一个 master 分支，将本地网站根目录下的所有内容及 public 文件都上传到仓内，启用 Github Page 功能时，将网站部署到 master分支的 public 目录上。</li><li>两个仓（blog 和 blog_backup），blog 仓放 public 目录中的内容，blog_backup 仓放本地网站根目录下所有内容。</li></ol><p>方式1 简单，但没搞明白远程仓的两个分支怎样同步本地仓的一个分支，略。方式2 也简单，但是 Github 在国内不稳，而国内 Gitee 的 Page 功能需要 Pro 版才可以自定义域名。嗯～，好吧，我承认针对方式2 我没有试验过，但理论上可行。所以，我选了方式3，Github 仓部署网站，Gitee 仓存放本地网站根目录下所有内容。</p><h3 id="备份前的准备工作">备份前的准备工作</h3><p>备份前的准备工作就是要实现 <code>hexo d</code>一键部署。</p><p>假如建站时执行的命令是 <code>hexo inin Demo</code>，则 Demo 就是本地网站根目录。两个远程仓，Github 上的名为 blog，Gitee 上的名为 blog_backup（备份用）。</p><p>因为是本地一个仓对应两个远程仓，所以很容易操作。Demo 中添加远程仓别名 blog 对应 Github 上的 blog 仓，Demo/public 添加远程仓别名 blog_backup，对应 Gitee 上的 blog_backup 仓，然后逐一 push。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以下命令是实验内容，不要执行</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Demo 目录中执行</span></span><br><span class="line">git init</span><br><span class="line">git remote add blog github_rep_ssh_url  # github_rep_ssh_url 为 blog 仓的 ssh 地址</span><br><span class="line"></span><br><span class="line">hexo clean</span><br><span class="line">hexo g # 执行该条命令后会在 Demo 目录中产生 public 目录，这个目录中的内容需要上传到 blog 仓中</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Demo/public  目录中执行</span></span><br><span class="line">git init # 不知道能不能执行</span><br><span class="line">git remote add blog_backup gitee_rep_ssh_url # gitee_rep_ssh_url 为 blog_backup 仓的 ssh 地址</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">git push 操作</span></span><br></pre></td></tr></table></figure><p>但是 ，每次执行<code>hexo g</code>命令后，public 目录都会先删除再新建，很麻烦，并且 Git 机制好像也不允许嵌套（Demo目录及 Demo/public 子目录都 <code>git init</code>）。但可是，很幸运，Hexo 的 <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deploy-git</a> 插件帮我们解决了这个问题，它会帮我们将 public 文件中的内容上传到远程仓中。所以，这个插件是刚需<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p><p>安装 hexo-deploy-git 插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Demo 目录中</span><br><span class="line">npm install hexo-deploy-git --save</span><br></pre></td></tr></table></figure><p>然后修改 Demo 根目录下的 <code>_config.yml</code>，新增 deploy 字段内容（或找到并完善） <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:breky/blog.git  # 网站部署到了 Github 上，所以这里填写的是 Github 上 blog 仓的 ssh 地址</span><br><span class="line">  branch: main  # Github 仓好像不支持 master 分支名了</span><br><span class="line">  message: </span><br></pre></td></tr></table></figure></p><p>之后就可以使用<code>hexo d</code>一键部署了。</p><h3 id="备份工作">备份工作</h3><p>实现<code>hexo d</code>一键部署后，备份方式3 就简化成把 Demo 目录中的所有内容上传到 Gitee 上的 blog_backup 仓中了。在 Demo 目录中执行以下内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add blog_backup blog_backup_ssh_url  # Gitee 上的 blog_backup 仓的 ssh 地址</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上命令两条命令一次就够</span></span><br></pre></td></tr></table></figure><p>在 Demo 目录中新建 <code>.gitignore</code>文件，内容为 git 上传时忽略的文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure><p>继续在 Demo 目录中执行以下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push -u blog_backup master #  gitee 上还是 master 分支名</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上三条命令每次备份都需执行</span></span><br></pre></td></tr></table></figure><h3 id="一键部署及备份">一键部署及备份</h3><p>每次部署及备份的过程就是：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push -u blog_backup</span><br></pre></td></tr></table></figure><p>在 Demo 目录中新建 shell 文件，实现一键部署及备份，shell 文件名为 <code>Deploy_Backup.sh</code>，内容为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Starting Deploy and Backup&quot;</span><br><span class="line">rm -rf ./.deploy_git/  # 每次 hexo d 后都会产生，所以删除了吧，有时候网站的内容与本地不一致也是这个目录的原因</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;backup&quot;</span><br><span class="line">git push -u blog_backup</span><br><span class="line">echo &quot;Over&quot;</span><br></pre></td></tr></table></figure><p>修改 Deploy_Backup.sh 文件属性</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 Deploy_Backup.sh</span><br></pre></td></tr></table></figure><p>每次需要部署和备份时仅需要执行以下命令，实现一键部署及备份</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./Deploy_Backup.sh</span><br></pre></td></tr></table></figure><h2 id="恢复">恢复</h2><p>将 gitee 上的 blog_backup 仓 pull 到本地后，执行 <code>npm install</code> 命令。</p><h3 id="恢复前的准备工作">恢复前的准备工作</h3><p>恢复前本机需先<a href="https://blog.breky.win/cn/Hexo/hexo_install/">安装 Hexo</a>和 Git（Manjaro 自带此处略过）。安装完成后就直接进行恢复工作，不要建站<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p><h3 id="恢复工作">恢复工作</h3><p>在本机的某个位置（<code>如：~/Document/</code>）新建网站根目录（<code>如：Demo</code>），最后网站根目录 Demo 的完整路径为<code>~/Document/Demo</code>，之后的所有操作都会在 Demo 目录中执行<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add demo backup_rep_ssh  # 备份仓 ssh 链接</span><br><span class="line">git pull demo master  # master 是本仓分支名</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以上三条命令将本仓内容下载到了本地的 Demo 目录中</span></span><br><span class="line"></span><br><span class="line">npm install  # 新建 Hexo Scripts（hexo clean, hexo g, hexo d, hexo s 命令） 及安装需要的 Hexo 插件，即 package.json 中的内容</span><br></pre></td></tr></table></figure><section class="footnotes" role="doc-endnotes"><hr /><ol><li id="fn1" role="doc-endnote"><p>可以将 hexo-deploy-git 添加至 package.json 中，每次恢复时就不用单独安装这个插件了。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li><li id="fn2" role="doc-endnote"><p>使用 <code>hexo init demo</code> 建站后，Demo 目录中有内容（本仓已有）。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li><li id="fn3" role="doc-endnote"><p>后续会把本仓内容 pull 到 Demo 目录中，如果 clone 下来，则更改 blog_backup 文件名为 Demo（直接下载则需要先解压后更名）， 之后的所有操作同样在 Demo 目录中执行。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li></ol></section>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> manjaro </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>安装 Hexo</title>
+      <link href="/cn/Hexo/hexo_install/"/>
+      <url>/cn/Hexo/hexo_install/</url>
+      
+        <content type="html"><![CDATA[<p>使用 Hexo + Github 搭建的静态博客，本机使用的是 Manjaro 系统。</p><span id="more"></span><h2 id="安装-hexo">安装 Hexo</h2><p>Hexo 的详细安装过程在官网文档（及其中涉及的链接）中可以找到（<a href="https://hexo.io/zh-cn/docs/">传送门</a>），以下仅记录 Manjaro 系统的安装过程。</p><h3 id="安装前提">安装前提</h3><p>安装 Hexo 前必需安装 <strong>Node.js</strong> 和 <strong>Git</strong>，一般 Manjaro 系统自带 Git，以下是 Nodejs 的安装命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S nodejs npm</span><br></pre></td></tr></table></figure><p>其他 Linux 系统可以在<a href="https://nodejs.org/en/download/package-manager">这里</a>查找。</p><h3 id="安装-hexo-1">安装 Hexo</h3><p>使用 npm 安装 Hexo，在 terminal 中输入以下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><h2 id="待记录">待记录</h2><ul class="task-list"><li><input type="checkbox" disabled="" />Github Pages Custom Domain</li><li><input type="checkbox" disabled="" checked="" /><a href="https://blog.breky.win/cn/Hexo/BackupAndRecovery/">Backup and Recovery</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> manjaro </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>「Goldendict」词典</title>
+      <link href="/cn/Linux/Goldendict/"/>
+      <url>/cn/Linux/Goldendict/</url>
+      
+        <content type="html"><![CDATA[<p>某些原因，事隔多年后又重新使用 Linux 系统，本机系统为 Manjaro 。安装 GoldenDict 时，发现本文当时记录的命令无效，现重新记录最新安装方法。</p><span id="more"></span><h2 id="最新安装方法23年3月20日更新">最新安装方法（23年3月20日更新）</h2><p>不知道什么原因，Manjaro 软件库里没有 Goldendict 包了（<code>pacman -Ss goldendict</code> 无结果）,用 <strong>yay</strong> 到是能找到，但是包放在了 Github 上，下载不是很流畅（咱都懂），再加上 QT 版本的问题，总是不成功。在网上扒了很久，发现了<a href="https://www.freesion.com/article/5809451385/">这篇文章</a>（安装方法在第一篇参考材料中），介绍用 <strong>snap</strong> 安装，成功了。</p><p>具体方法：</p><p>安装 snap</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo paman -S snapd</span><br><span class="line">sudo systemctl enable --now snapd.socket</span><br><span class="line">sudo  ln -s /var/lib/snapd/snap /snap</span><br></pre></td></tr></table></figure><p>重启系统</p><p>安装 GoldenDict</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo snap install goldendiction</span><br></pre></td></tr></table></figure><p>打完收工。测试屏幕取词，没问题。测试发音，瞎了，不能用，哦 TM 耶。</p><p>网上的方式都是使用外部音频程序（Edit=&gt;Preferences=&gt;Audio=&gt;Playbak=&gt;Use external program），如下图：</p><figure><img src="https://s1.ax1x.com/2023/03/22/ppaJrLQ.png" alt="" /><figcaption>Goldendict Audio</figcaption></figure><p>图中命令为 <code>cvlc --play-and-exit</code> 或者 <code>cvlc --paly-and-quit</code> （都试了），但是这个版本（1.5.0-RC2-85）的没用，至少我是没成功。好难受。</p><p>官网的 <a href="https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Linux-Portable">Github</a> 上还有一个 64 位最新的 <code>AppImage</code> 版（版本为 <code>continuous-1-g661dd4d</code>），下载、安装（哦，不用安装，双击运行就行）、测试，屏幕取词、发音（使用外部音频程序），都能正常运行。但是，屏幕取词用按键的话，不能选择 <code>Send translated word to main  window</code>（将翻译内容发送至主窗口）选项，设置如下图（设置的大意是：划词后，在 3 秒内按 ctrl 键，弹出翻译窗口）：</p><figure><img src="https://s1.ax1x.com/2023/03/22/ppaYa79.png" alt="" /><figcaption>Goldendict Send Translated Word</figcaption></figure><p>否则翻译窗口会在系统通知栏显示，需要单击一下才能显示出来，如下图：</p><figure><img src="https://s1.ax1x.com/2023/03/22/ppaYy6O.png" alt="" /><figcaption>Goldendict Popup</figcaption></figure><p>好吧，最后屏幕取词的按键我选择了 Ctrl + Alt 组合键，两个键单独使用会影响这两个键的组合键，如 Ctrl + C/V，Alt 在一些程序中是显示/隐藏菜单的键。</p><p>另外一个问题（最后一个了，真的），没有启动菜单，只能双击 <code>AppImage</code> 那个文件，不想再折腾菜单了，放弃了，躺平了，爱咋咋地吧。</p><h2 id="关于词典和构词法">关于词典和构词法</h2><p>自定义词典和构词法还是用下面参考内容的方法。</p><p>这两个版本不能用 <code>mdx</code> 格式的字典，我用了 <a href="https://github.com/skywind3000/ECDICT/releases">skywind3000</a> 大神的《简明英汉字典增强版》的 ecdict-mdx-style-28.zip 词典（<code>mdx</code> 格式），读取字典后会闪退，是软件版本问题，大神说软件不能用 <code>1.0</code> 版的，要用 <code>1.5</code> 以后的版本，这两个版本完美中枪了（T_T!） 。</p><p>构词法参考的是 <a href="https://blog.csdn.net/lzt2017?type=blog">day_day_grow 大神</a> 的 <a href="https://blog.csdn.net/lzt2017/article/details/108337013">这篇文章</a>。</p><h2 id="关于资源">关于资源</h2><p>Goldendict 的 <code>AppImage</code> 文件和构词法（<code>en_US_1.0.zip</code>）放在了<a href="https://breky.lanzoue.com/b00qucw5g">这里</a>，密码：bsga</p><p>词典放在了某云上，<a href="https://pan.baidu.com/s/1Do7Ln7sur5c7-doYTd-7DQ">这是链接</a> ，提取码: bykk，压缩后文件还是太大了，网上找不到好的存放位置。</p><p>PS：这个词典我也忘了转存的哪位大神的资源了，对不起！</p><h2 id="以下内容仅供参考18年6月17日">以下内容仅供参考（18年6月17日）</h2><p>系统：「Elementary OS」--- 基于「Ubuntu 16.04」</p><p>「Goldendict」在「Linux」系统中表现良好，支持取词，自定义词典。</p><h3 id="安装">安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install goldendict <span class="comment"># Debian/Ubuntu</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S goldendic <span class="comment"># Arch or Manjaro</span></span></span><br></pre></td></tr></table></figure><p>也可以在官网的「Github」上下载， <a href="https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Linux-Portable">下载地址</a></p><h3 id="使用">使用</h3><h4 id="自定义词典">自定义词典</h4><p>支持的词典格式：「dsl」、「bgl」、「stardict」、... ...</p><p>安装方法：</p><ol type="1"><li>新建目录，如「 ~/home/usrname/Applicatioin/goldendict/dict 」。「usrname」：用户名；「Applications/goldendict/dict」：随意，自己能找到就好。</li><li>将下载的词典放在新建的目录中。</li><li>打开「Goldendict」，编辑=》词典=》词典来源=》文件=》添加，逐一选择词典，最后 重新扫描</li><li>勾选词典，应用。</li></ol><h4 id="词形匹配">词形匹配</h4><p>编辑=》词典=》词典来源=》构词法规则库，设置 构词法规则库 目录，勾选</p><h3 id="词典">词典</h3><p>在家目录中执行以下命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> git://git.coding.net/breky-zhao/goldendict.git <span class="comment"># 不能用了，手欠删了，我有罪（2023年3月20日）。</span></span></span><br></pre></td></tr></table></figure><p>将下载目录中的两个文件复制到某个目录中，按照自定义词典的安装方法安装。</p><p><em>注</em></p><p>「dict」：词典目录</p><p>「morphology」：构词法规则库目录</p><hr /><h3 id="参考">参考</h3><p><a href="https://blog.yuanbin.me/posts/2013/01/goldendictxia-san-da-you-zhi-ci-ku-shi-yong-xiao-ji.html">goldendict下优质词典简介及安装</a></p><p><a href="https://github.com/yanyingwang/goldendict">yanyingwang/goldendict</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> goldendict </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

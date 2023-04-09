@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ubuntu 安装记录（持续更新） | Breky</title>
+  
+    <link rel="icon" href="/assets/favicon.ico">
+  
+  
+  
+  <!--link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css"-->
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.10.0/styles/github-gist.min.css">
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+<div class="Shell">
+    <aside class='SideBar'>
+    <section class='avatar' style="background-image: url()">
+        <div class='av-pic' style="background-image: url(/assets/breky.png)">
+        </div>
+    </section>
+    <section class='menu'>
+        <div>Breky</div>
+        
+            <div>人心唯危，道心唯惟</div>
+        
+        <ul>
+          
+            <a href="/" class="Btn">
+              <li>首页</li>
+            </a>  
+          
+            <a href="/archives/" class="Btn">
+              <li>归档</li>
+            </a>  
+          
+            <a href="/categories" class="Btn">
+              <li>分类</li>
+            </a>  
+          
+            <a href="/tags/" class="Btn">
+              <li>标签</li>
+            </a>  
+          
+            <a href="/about/" class="Btn">
+              <li>关于</li>
+            </a>  
+          
+        </ul>
+    </section>
+    <section class="media">
+        
+    </section>
+</aside>
+
+    <div class="container">
+        <div data-pager-shell>
+            <div>
+  
+  <span style="display:block; width:auto; text-align:center; color: red;">
+  文章中涉及的命令，请在阅读完文章后酌情执行！
+</span>
+
+
+
+<article class='ContentView'>
+    <header class='PageTitle'>
+        <h1>Ubuntu 安装记录（持续更新）</h1>
+            
+                <div class='ListMeta'>
+  <span>作者 <a href="https://blog.breky.win">Breky</a></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>发布于 <time datetime="2023-04-02T16:00:00.000Z" itemprop="datePublished">2023-04-03</time></span>
+
+  <span>&nbsp;&nbsp<span>
+
+  <span>分类
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/categories/Ubuntu/">Ubuntu</a> 
+  </li>
+
+
+  </ul>
+  
+
+  <span>&nbsp;&nbsp<span>
+
+  </span>标签
+  
+  <ul>
+    
+  <li class="meta-text">
+   <a href="/tags/ubuntu/">ubuntu</a> 
+  </li>
+
+
+  </ul>
+  
+
+
+</div>
+
+            
+
+       
+    </header>
+
+    <section>
+    
+
+      <p>邪教教徒不好做，以前用的 <code>Manjaro</code>，改邪归正，用 <code>Ubuntu</code> 了。这篇文章记录在使用过程中遇到的问题。</p>
+<span id="more"></span>
+<h2 id="年4月3日-更新">2023年4月3日 更新</h2>
+<h3 id="关于输入法">关于输入法</h3>
+<p><code>Manjaro</code> 系统没装中文输入法，安装了 <code>Fcitx</code>，<code>ElementaryOS</code> 时自带的 <code>ibus</code> 系统图标有问题，也换成了 <a href="https://blog.breky.win/tags/fcitx/">Fcitx</a>，但是 <code>Ubuntu 22.04 LTS</code> 中自带的 <code>ibus</code> 很好，就没再装。</p>
+<h3 id="sublime-text-4-激活">Sublime-text 4 激活</h3>
+<ol type="1">
+<li>备份 <code>sublime_text（路径为 /opt/sublime_text/sublime_text）</code> 文件</li>
+<li>进入 <a target="_blank" rel="noopener" href="https://hexed.it">Hexed</a> 网站</li>
+<li>打开 <code>sublime_text</code> 文件</li>
+<li>搜索 <code>807805000f94c1</code> 并替换为 <code>c64005014885c9</code></li>
+<li>导出 <code>sublime_text</code> 文件并修改文件属性为 <code>755</code>（<code>chmod 755 sublime_text</code>）</li>
+<li>将导出的 <code>sublime_text</code> 复制或移动到 <code>/opt/sublime_text</code> 目录中（<code>sudo cp/mv</code>）</li>
+</ol>
+<p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45700528/article/details/129382166">激活sublime text4</a></p>
+<h3 id="sublime-text-代码片段功能">Sublime-text 代码片段功能</h3>
+<p><code>sublime-text</code> 的代码片段（<code>snippet</code>）可以实现输入几个特定字符后按 <code>tab</code> 键转化为指定的内容。</p>
+<p>例如，写 <code>Hexo</code> 博客文章时，需要写 <code>yaml</code> 头文件，每篇文章都要写，很麻烦。使用 <code>snippet</code>，就使其变得简单了很多。<strong>具体过程如下：</strong></p>
+<p><strong>新建代码片段</strong>。单击<code>工具 =&gt; 插件开发 =&gt; 新建代码片段</code>，文件内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;snippet&gt;</span><br><span class="line">	&lt;content&gt;&lt;![CDATA[</span><br><span class="line">Hello, $&#123;1:this&#125; is a $&#123;2:snippet&#125;.</span><br><span class="line">]]&gt;&lt;/content&gt;</span><br><span class="line">	&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span><br><span class="line">	&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;</span><br><span class="line">	&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span><br><span class="line">	&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span><br><span class="line">&lt;/snippet&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>修改转化内容。</strong>把 <code>Hello, $&#123;1:this&#125; is a $&#123;2:snippet&#125;.</code> 这行内容修改为想要的内容。</p>
+<p><strong>指定触发字符。</strong>去掉 <code>&lt;tabTrigger&gt;</code> 标签两边的注释符号（<code>&lt;!--</code> 和 <code>--&gt;</code>）</p>
+<p>最后选个合适的名字，保存在默认目录（<code>~/.conf/sublime-text/Packages/User</code>）中即可。当然为了方便管理，在默认目录中新建个目录，将所有自定义的 <code>snippet</code> 文件（<code>.sublime-snippet</code>）都保存里面也可以。</p>
+<p>我用的一个 <code>snippet</code> 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;snippet&gt;</span><br><span class="line">	&lt;content&gt;&lt;![CDATA[</span><br><span class="line">---</span><br><span class="line">title: $&#123;1: &#125;  </span><br><span class="line">date: $&#123;2: &#125;  </span><br><span class="line">author: Breky  </span><br><span class="line">categories: $&#123;3: &#125;  </span><br><span class="line">tags: $&#123;4: &#125; </span><br><span class="line">---</span><br><span class="line">]]&gt;&lt;/content&gt;</span><br><span class="line">	&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span><br><span class="line">	&lt;tabTrigger&gt;mdt&lt;/tabTrigger&gt;</span><br><span class="line">	&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span><br><span class="line">	&lt;!-- &lt;scope&gt;source.markdown&lt;/scope&gt; --&gt;</span><br><span class="line">	&lt;description&gt;YAML Title&lt;/description&gt;</span><br><span class="line">&lt;/snippet&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>解释：</strong>在任意文件中输入 <code>mdt</code> 然后按 <code>tab</code> 键，<code>mdt</code> 转化为</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">$&#123;1:</span> <span class="string">&#125;</span>  </span><br><span class="line"><span class="attr">date:</span> <span class="string">$&#123;2:</span> <span class="string">&#125;</span>  </span><br><span class="line"><span class="attr">author:</span> <span class="string">Breky</span>  </span><br><span class="line"><span class="attr">categories:</span> <span class="string">$&#123;3:</span> <span class="string">&#125;</span>  </span><br><span class="line"><span class="attr">tags:</span> <span class="string">$&#123;4:</span> <span class="string">&#125;</span> </span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>光标默认在 <code>$&#123;1: &#125;</code> 位置上，输入完其上的内容后，再依次按 <code>tab</code> 键，依次跳到 <code>$&#123;2: &#125;, $&#123;3: &#125;, $&#123;4: &#125;</code> 位置上。</p>
+<p><strong>其他问题。</strong>其他博主有强调过，需要使用 <code>&lt;scope&gt;</code> 标签来指定使用范围，比如 <code>&lt;scope&gt;source.python&lt;/scope&gt;</code> 是说当前的 <code>snippet</code> 在 <code>python</code> 环境中才生效。但是我改成 <code>&lt;scope&gt;source.md&lt;/scope&gt;</code> 或者 <code>&lt;scope&gt;source.markdown&lt;/scope&gt;</code>，在 <code>.md</code> 或者 <code>.markdown</code> 文件中都不能生效。最后只能不指定使用范围，在所有文件中都可以用，才可以在 <code>markdown</code> 文件中使用。</p>
+<p><strong>参考：</strong> <a target="_blank" rel="noopener" href="https://www.likecs.com/show-308363355.html">Sublime Text Snippets（代码片段）功能</a></p>
+<h3 id="关于-appimage-格式的软件">关于 AppImage 格式的软件</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/aboutmn/article/details/87254930">AppImage</a> 格式的软件几乎可以在任何 <code>Linux</code> 系统中都可以运行，并且不需要给系统安装任何软件所需依赖，因为它自带。</p>
+<p>对于 <code>Manjaro</code> 系统，给 <code>AppImage</code> 格式软件添加可执行权限后，在终端输入 <code>./xxx.AppImage</code> 直接运行。</p>
+<p><code>Ubuntu 22.04 LTS</code> ，因为缺少 <code>AppImage</code> 运行环境，不能直接运行。又但是，它自带所有运行时所需依赖，所以它可以像 <code>Win</code> 系统中的绿色软件一样，解压后找到可执行文件即可运行。</p>
+<p><strong>具体过程：</strong></p>
+<p><strong>解压 <code>AppImage</code> 文件：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /path/to/xxx.AppImage</span><br><span class="line"></span><br><span class="line">chmod 755 xxx.AppImage  </span><br><span class="line"></span><br><span class="line">./xxx.AppImage --appimage-extract</span><br></pre></td></tr></table></figure>
+<p><strong>修改 <code>.desktop</code> 文件。</strong>解压完成后，同目录下会有一个子目录（目录名不确定，以 <code>appFolder</code> 为例），子目录中有 <code>xxx.desktop</code> 文件，修改其中的 <code>Exec</code> （子目录中的可执行文件，一般与 <code>AppImage</code> 文件同名或是 <code>AppRun</code> 文件）和 <code>Icon</code>（子目录中的 <code>.png</code> 文件）的值（都需要绝对路径）。</p>
+<p><strong>创建启动图标。</strong>在 <code>~/.loacl/share/applications</code> 目录中新建 <code>xxx.desktop</code> 文件的软链即可以在启动器（不知道叫什么，就是系统的所有软件）中找到软件的启动图标。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新建软链</span></span><br><span class="line">cd /path/to/xxx.AppImage/appFolder  # 可以省略，创建软链需要用绝对路径</span><br><span class="line">ln -s /path/to/xxx.AppImage/appFolder/xxx.desktop /home/usrname/.local/share/applications/xxx.desktop  # username 为用户名</span><br></pre></td></tr></table></figure>
+<p><strong>举个栗子。</strong></p>
+<p>以 <a target="_blank" rel="noopener" href="https://motrix.app/">Motrix</a> 为例。<code>Motrix-1.6.11.AppImage</code> 文件路径为 <code>/home/breky/Applications/Motrix</code>，<code>breky</code> 是用户名。</p>
+<p>执行 <code>./Motrix-1.6.11.AppImage --appimage-extract</code> 命令后得到的子目录名改成了 <code>runtime</code>，原名忘了叫啥了。</p>
+<figure>
+<img src="https://imgbed.link/file/21600" alt="" /><figcaption>runtime folder</figcaption>
+</figure>
+<p>图中标号 3 的文件为启动图标，修改后的内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=Motrix</span><br><span class="line">Exec=/home/breky/Applications/Motrix/runtime/motrix --disable-gpu-sandbox %U</span><br><span class="line">Terminal=false</span><br><span class="line">Type=Application</span><br><span class="line">Icon=/home/breky/Applications/Motrix/runtime/motrix.png</span><br><span class="line">Categories=Network</span><br></pre></td></tr></table></figure>
+<p><code>Exec</code> 和 <code>Icon</code> 两项的值分别指向图中标号为 2 和 标号为 4 的文件，<code>Exec</code> 也可以指向图中标号为 5 的 <code>AppRun</code> 文件。</p>
+<p>创建启动图标软链，命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/breky/Applications/Motrix/runtime/motrix.desktop /home/breky/.local/share/applications/motrix.desktop</span><br></pre></td></tr></table></figure>
+<p>之后，在 <code>home/breky/.local/share/applications/</code> 目录中会有 <code>motrix.desktop</code> 文件的软链。</p>
+<figure>
+<img src="https://imgbed.link/file/21601" alt="" /><figcaption>.local/share/applications</figcaption>
+</figure>
+<p>最后，单击下图红圈内的图标，就可以找到了。</p>
+<figure>
+<img src="https://imgbed.link/file/21602" alt="" /><figcaption>win+a</figcaption>
+</figure>
+<p>完成，哦耶。</p>
+<p><strong>单击后不能运行的情况：</strong></p>
+<ol type="1">
+<li><code>Exec</code> 的值不对。使用绝对路径并认真核对。</li>
+<li><code>runtime</code> 目录中的 <code>motrix.desktop</code> 文件需要勾选 <code>允许执行文件</code>（<code>右键 =&gt; 属性 =&gt; 权限</code> 就能看到了）。</li>
+<li><code>runtime</code> 目录中的 <code>motrix</code>（可执行文件）和 <code>motrix.desktop</code> 文件需要添加执行权限（<code>chmod +x motrix/motrix.desktop</code>）。</li>
+<li>再不行，在终端直接运行 <code>./motrix</code>，查看错误提示，根据提示逐一修复。(一般不会，但 <code>motrix</code> 需要添加选项 <code>--disable-gpu-sandbox %U</code>)。</li>
+</ol>
+<p><strong>参考：</strong></p>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/389052463">Arch Linux - AppImage</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/aboutmn/article/details/87254930">什么是AppImage</a></li>
+</ol>
+
+
+      
+
+    </section>
+    
+      <section class='ArticleMeta'>
+          <div>
+            发布于&nbsp;
+            <time datetime="2023-04-02T16:00:00.000Z" itemprop="datePublished">
+              2023-04-03
+            </time>
+          </div>
+          
+            <div>
+              标签: 
+  <li class="meta-text">
+   <a href="/tags/ubuntu/">ubuntu</a> 
+  </li>
+
+
+            </div>
+          
+      </section>
+    
+    
+</article>
+
+  
+</div>
+
+            <footer>
+    <div>© 2023 - Breky </div>
+    <div>
+        <span>
+            Powered by <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+        </span>
+        ,
+        <span>
+            Theme - <a target="_blank" rel="noopener" href="https://github.com/nameoverflow/hexo-theme-icalm">Icalm</a>
+        </span>
+    </div>
+</footer>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/pager/dist/singlepager.js"></script>
+
+<script>
+var sp = new Pager('data-pager-shell')
+
+</script>
+</body>
+</html>
